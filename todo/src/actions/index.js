@@ -9,9 +9,10 @@ export const addTodo = (todo) => {
     }
 };
 
-export const completeTodo = () => {
+export const completeTodo = (todoId) => {
     console.log('actions/index.js: completeTodo')
     return {
-        type: COMPLETETODO
+        type: COMPLETETODO,
+        payload: todoId
     }
 };
