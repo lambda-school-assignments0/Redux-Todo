@@ -1,8 +1,9 @@
 export const ADDTODO = 'ADDTODO';
 export const COMPLETETODO = 'COMPLETETODO';
+export const DELETETODO = 'DELETETODO';
 
 export const addTodo = (todo) => {
-    console.log('actions/index.js: addTodo')
+    console.log('actions/index.js: addTodo');
     return {
         type: ADDTODO,
         payload: todo
@@ -10,9 +11,17 @@ export const addTodo = (todo) => {
 };
 
 export const completeTodo = (todoId) => {
-    console.log('actions/index.js: completeTodo')
+    console.log('actions/index.js: completeTodo');
     return {
         type: COMPLETETODO,
         payload: todoId
     }
 };
+
+export const deleteTodo = (todos) => {
+    console.log('actions/index.js: deleteTodo');
+    return {
+        type: DELETETODO,
+        payload: todos
+    }
+}
