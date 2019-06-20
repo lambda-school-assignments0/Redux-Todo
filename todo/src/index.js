@@ -1,6 +1,19 @@
+// import dependencies
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// import css
+import './index.css';
+
+// import components
+import TodoList from './components/TodoList';
+
+// import reducers
+import todo from './reducers';
+
+// create store
+const store = createStore(todo);
+
+ReactDOM.render(<Provider store={store}><TodoList /></Provider>, document.getElementById('root'));
