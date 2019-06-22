@@ -7,9 +7,15 @@ class Todo extends Component {
         this.props.completeTodo(this.props.todo.id);
     }
 
+    handleDeleteTodo = e => {
+        e.preventDefault();
+        this.props.deleteTodo(this.props.todo.id);
+    }
+
     render() {
         return (
             <div className={`todo-item${this.props.todo.completed ? ' completed' : ''}`} onClick={this.handleCompleteTodo}>
+                <button onClick={this.handleDeleteTodo}>x</button>{' '}
                 {this.props.todo.value}
             </div>
         )

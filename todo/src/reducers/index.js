@@ -9,7 +9,7 @@ export default (state = initialState, action) => {
         case ADDTODO:
             console.log('reducers/index.js: ADDTODO');
             return {
-                todos: [...state.todos, { id: state.todos.length, value: action.payload, completed: false }]
+                todos: [...state.todos, { id: Date.now(), value: action.payload, completed: false }]
             }
         case COMPLETETODO:
             console.log('reducers/index.js: COMPLETETODO');

@@ -18,10 +18,10 @@ export const completeTodo = (todoId) => {
     }
 };
 
-export const deleteTodo = (todos) => {
+export const deleteTodo = (todoId) => {
     console.log('actions/index.js: deleteTodo');
     return {
         type: DELETETODO,
-        payload: todos
+        payload: todoId
     }
 }
