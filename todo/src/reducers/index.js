@@ -14,8 +14,8 @@ export default (state = initialState, action) => {
         case COMPLETETODO:
             console.log('reducers/index.js: COMPLETETODO');
             return {
-                todos: state.todos.map((todo, index) => {
-                    if (index !== action.payload) {
+                todos: state.todos.map((todo) => {
+                    if (todo.id !== action.payload) {
                         return todo
                     }
 

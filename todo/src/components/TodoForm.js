@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
 export default class TodoForm extends Component {
     state = {
@@ -21,11 +22,11 @@ export default class TodoForm extends Component {
                 <input 
                     type='text'
                     name='newTodo'
-                    placeholder='Todo...'
+                    placeholder='Add New Todo'
                     value={this.state.newTodo}
                     onChange={this.handleTextChange}
                 />
-                <button>Submit</button>
+                <Button color='primary'>Submit</Button>
             </form>
         )
     }
