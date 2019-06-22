@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { InputGroup, InputGroupText, InputGroupAddon, Input } from 'reactstrap';
 import { Button } from 'reactstrap';
 
 export default class TodoForm extends Component {
@@ -19,14 +20,20 @@ export default class TodoForm extends Component {
     render() {
         return(
             <form className='todo-form' onSubmit={this.handleAddTodo}>
-                <input 
-                    type='text'
-                    name='newTodo'
-                    placeholder='Add New Todo'
-                    value={this.state.newTodo}
-                    onChange={this.handleTextChange}
-                />
-                <Button color='primary'>Submit</Button>
+                <InputGroup>
+                    <InputGroupAddon addonType='prepend'>
+                        <InputGroupText>Add New Todo</InputGroupText>
+                    </InputGroupAddon>
+                    <Input 
+                        type='text'
+                        name='newTodo'
+                        value={this.state.newTodo}
+                        onChange={this.handleTextChange}
+                    />
+                    <InputGroupAddon addonType='append'>
+                        <Button color='primary'>Submit</Button>
+                    </InputGroupAddon>
+                </InputGroup>
             </form>
         )
     }

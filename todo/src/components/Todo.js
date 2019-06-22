@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { ListGroupItem } from 'reactstrap';
+import { Button } from 'reactstrap';
 
 class Todo extends Component {
 
@@ -14,10 +16,10 @@ class Todo extends Component {
 
     render() {
         return (
-            <div className={`todo-item${this.props.todo.completed ? ' completed' : ''}`} onClick={this.handleCompleteTodo}>
-                <button onClick={this.handleDeleteTodo}>x</button>{' '}
-                {this.props.todo.value}
-            </div>
+            <ListGroupItem className={`todo-item${this.props.todo.completed ? ' completed' : ''}`} onClick={this.handleCompleteTodo}>
+                <p>{this.props.todo.value}</p>
+                <Button color='danger' onClick={this.handleDeleteTodo}>delete</Button>
+            </ListGroupItem>
         )
     }
 }

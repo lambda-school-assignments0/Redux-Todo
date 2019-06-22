@@ -17,6 +17,7 @@ code {
 
 .completed {
   text-decoration: line-through;
+  color: #8D8D92;
 }
 
 .hidden {
@@ -25,7 +26,17 @@ code {
 
 .todo-list {
   max-width: 800px;
-  margin: 0 auto;
-
+  margin: 25px auto;
   color: #C7DBE6;
+}
+
+.list-group-item {
+  color: #C7DBE6;
+  background-color: #364652;
+  border-color: #C7DBE6;
+  font-size: 20px;
+}
+
+.todo-form {
+  margin-top: 20px;
 }
