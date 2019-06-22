@@ -15,12 +15,26 @@ code {
     monospace;
 }
 
+.icon::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.checkbox::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f007";
+}
+
 .completed {
   color: #8D8D92;
 }
 
 .hidden {
-  display: hidden;
+  display: none;
 }
 
 .todo-list {
