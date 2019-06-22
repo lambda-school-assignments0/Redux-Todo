@@ -16,7 +16,6 @@ code {
 }
 
 .completed {
-  text-decoration: line-through;
   color: #8D8D92;
 }
 
@@ -28,6 +27,10 @@ code {
   max-width: 800px;
   margin: 25px auto;
   color: #C7DBE6;
+}
+
+.todo-item {
+  margin-bottom: 10px;
 }
 
 .list-group-item {
