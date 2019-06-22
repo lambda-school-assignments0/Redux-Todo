@@ -1,4 +1,4 @@
-import { ADDTODO, COMPLETETODO, DELETETODO } from '../actions';
+import { ADDTODO, COMPLETETODO, DELETETODO, DELETEALLCOMPLETETODO } from '../actions';
 
 const initialState = {
     todos: []
@@ -29,6 +29,11 @@ export default (state = initialState, action) => {
             console.log('reducers/index.js: DELETETODO');
             return {
                 todos: state.todos.filter(todo => todo.id !== action.payload)
+            }
+        case DELETEALLCOMPLETETODO:
+            console.log('reducers/index.js: DELETEALLCOMPLETETODO');
+            return {
+                todos: state.todos.filter((todo) => todo.completed !== true)
             }
         default:
             console.log('reducers/index.js: default');

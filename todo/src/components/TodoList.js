@@ -1,32 +1,63 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addTodo, completeTodo, deleteTodo } from '../actions';
+import { addTodo, completeTodo, deleteTodo, deleteAllCompleteTodo } from '../actions';
 import TodoForm from './TodoForm';
 import Todo from './Todo';
 import { ListGroup } from 'reactstrap';
-import { InputGroup, InputGroupText, InputGroupAddon, Input } from 'reactstrap';
+import { InputGroupAddon } from 'reactstrap';
 import { ButtonGroup, Button } from 'reactstrap';
+import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
 class TodoList extends Component {
+    constructor(props) {
+        super(props);
+        
+        this.state = {
+            modalDeleteAllCompleteTodo: false
+        }
+    }
+
+    toggleDeleteAllCompleteTodo = () => {
+        this.setState(prevState => ({
+            modalDeleteAllCompleteTodo: !prevState.modalDeleteAllCompleteTodo
+        }));
+    }
+
+    handleDeleteAllCompleteTodo = e => {
+        e.preventDefault();
+        this.props.deleteAllCompleteTodo(this.props.todos);
+        this.toggleDeleteAllCompleteTodo();
+    }
+
     render() {
         console.log(this)
         return(
             <div className='todo-list'>
                 <h1>Todo List:</h1>
                 <div className='todo-controls'>
-                    <p className='todo-views'>
+                    <div className='todo-controls-row'>
                         <ButtonGroup>
                             <InputGroupAddon addonType='prepend'>View: </InputGroupAddon>
                             <Button>All</Button>
                             <Button>Completed</Button>
                             <Button>Incompleted</Button>
                         </ButtonGroup>
-                    </p>
-                    <p className='todo-nuke'>
+                    </div>
+                    <div className='todo-controls-row'>
                         <ButtonGroup>
-                            <Button color='danger'>Delete All Complete</Button>
+                            <Button color='danger' onClick={this.toggleDeleteAllCompleteTodo}>Delete All Complete</Button>
+                            <Modal isOpen={this.state.modalDeleteAllCompleteTodo} toggle={this.toggleDeleteAllCompleteTodo}>
+                                <ModalHeader toggle={this.toggleDeleteAllCompleteTodo}>Delete all completed todos?</ModalHeader>
+                                <ModalBody>
+                                    This action cannot be undone.
+                                </ModalBody>
+                                <ModalFooter>
+                                    <Button color='danger' onClick={this.handleDeleteAllCompleteTodo}>Delete All</Button>
+                                    <Button color='secondary' onClick={this.toggleDeleteAllCompleteTodo}>Cancel</Button>
+                                </ModalFooter>
+                            </Modal>
                         </ButtonGroup>
-                    </p>
+                    </div>
                 </div>
                 <ListGroup>
                     {this.props.todos.map(todo => (
@@ -45,4 +76,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, { addTodo, completeTodo, deleteTodo })(TodoList);
+export default connect(mapStateToProps, { addTodo, completeTodo, deleteTodo, deleteAllCompleteTodo })(TodoList);
