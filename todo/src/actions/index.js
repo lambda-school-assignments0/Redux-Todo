@@ -30,6 +30,6 @@ export const deleteTodo = (todoId) => {
 export const deleteAllCompleteTodo = () => {
     console.log('action/index.js: deleteAllCompleteTodo');
     return {
-        type: DELETEALLCOMPLETETODO,
+        type: DELETEALLCOMPLETETODO
     }
 }

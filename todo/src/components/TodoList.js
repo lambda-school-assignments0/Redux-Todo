@@ -13,7 +13,8 @@ class TodoList extends Component {
         super(props);
         
         this.state = {
-            modalDeleteAllCompleteTodo: false
+            modalDeleteAllCompleteTodo: false,
+            view: 'all'
         }
     }
 
@@ -38,9 +39,9 @@ class TodoList extends Component {
                     <div className='todo-controls-row'>
                         <ButtonGroup>
                             <InputGroupAddon addonType='prepend'>View: </InputGroupAddon>
-                            <Button>All</Button>
-                            <Button>Completed</Button>
-                            <Button>Incompleted</Button>
+                            <Button onClick={() => {}}>All</Button>
+                            <Button onClick={() => {}}>Completed</Button>
+                            <Button onClick={() => {}}>Incompleted</Button>
                         </ButtonGroup>
                     </div>
                     <div className='todo-controls-row'>
